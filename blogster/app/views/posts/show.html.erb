@@ -1,0 +1,7 @@
+<div id="post-header inline">
+  <div class="inline"> <h1 id="title"> <%= @post.title %> </h1> </div>
+  <div class="inline"> <i id="date"> <%= @post.created_at.strftime("%d/%m/%y") %> </i> </div>
+</div>
+<p><%= @post.content %></p>
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" } %>

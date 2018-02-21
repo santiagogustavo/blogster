@@ -6,10 +6,14 @@
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
-
   # Returns the variable @posts with all the entries for Post model
   def index
-    @posts = Post.all
+    if params[:category].blank?
+      @posts = Post.all.order('created_at DESC')
+    else
+      @category_id = Category.find_by(name: params[:category])
+      @posts = Post.where(category_id: @category_id).order('created_at DESC')
+    end
   end
 
   # Passthrough for getting the correct Post with before_action
@@ -22,7 +26,7 @@ class PostsController < ApplicationController
 
   # Generates an instance for Post model with the parameters filled
   def create
-    @post = Post.new(params)
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to @post, notice: 'Post created successfully!'
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    if @post.update(params)
+    if @post.update(post_params)
       redirect_to @post, notice: 'Post updated successfully!'
     else
       render 'edit'
