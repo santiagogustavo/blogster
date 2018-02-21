@@ -1,3 +1,7 @@
+# class Controller
+#   def action; end
+# end
+
 # POSTS CONTROLLER
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
