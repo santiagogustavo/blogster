@@ -4,12 +4,18 @@
   }
 }
 
+.line-truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .post {
+  &-list {
+    margin: 25px 0;
+  }
   &-cell {
     height: 100px;
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: wrap;
   }
   &-image {
     display: block;
@@ -25,5 +31,8 @@
   &-content {
     width: 100%;
     height: 100%;
+    display: block;
+    padding-left: 120px;
+    padding-right: 20px;
   }
 }

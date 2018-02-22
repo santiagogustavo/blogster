@@ -1,18 +1,27 @@
+
 <% if @posts.size == 0 %>
   <%= render 'shared/empty_page' %>
-<% end %>
-
-<% @posts.each do |post| %>
-  <div class="panel panel-default post-cell">
-    <div class="post-image">
-      <%= render 'shared/placeholder' %>
-    </div>
-    <div class="post-content">
-      <div class="inline-container">
-        <h1> <%= link_to post.title, post %> </h1>
-        <i id="date"> <%= post.created_at.strftime("%d/%m/%y") %> </i>
-      </div>
-      <p> <%= post.content.truncate(100, omission: '...') %> </p>
-    </div>
-  </div>
+<% else %>
+  <section class="layout-page">
+    <h1><%= current_page?(root_path) ? "Home" : @category_name %></h1>
+    <hr/>
+    <% @posts.each do |post| %>
+      <section class="post-list">
+        <div class="panel panel-default post-cell">
+          <div class="post-image">
+            <%= render 'shared/placeholder' %>
+          </div>
+          <div class="post-content">
+            <div class="inline-container">
+              <h2> <%= link_to post.title, post %> </h2>
+              <i id="date"> <%= post.created_at.strftime("%d/%m/%y") %> </i>
+            </div>
+            <div class="line-truncate">
+              <p> <%= post.content %> </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+  </section>
 <% end %>

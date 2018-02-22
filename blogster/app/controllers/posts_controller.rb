@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     if params[:category].blank?
       @posts = Post.all.order('created_at DESC')
     else
+      @category_name = params[:category]
       @category_id = Category.find_by(name: params[:category])
       @posts = Post.where(category_id: @category_id).order('created_at DESC')
     end
