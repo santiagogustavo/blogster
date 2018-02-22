@@ -1,11 +1,18 @@
-<h1>Hello world!</h1>
-
 <% if @posts.size == 0 %>
-  <p> nothing here </p>
+  <%= render 'shared/empty_page' %>
 <% end %>
 
 <% @posts.each do |post| %>
-  <div class="inline"> <h1> <%= link_to post.title, post %> </h1> </div>
-  <div class="inline"> <i id="date"> <%= post.created_at.strftime("%d/%m/%y") %> </i> </div>
-  <p> <%= post.content %> </p>
+  <div class="panel panel-default post-cell">
+    <div class="post-image">
+      <%= render 'shared/placeholder' %>
+    </div>
+    <div class="post-content">
+      <div class="inline-container">
+        <h1> <%= link_to post.title, post %> </h1>
+        <i id="date"> <%= post.created_at.strftime("%d/%m/%y") %> </i>
+      </div>
+      <p> <%= post.content.truncate(100, omission: '...') %> </p>
+    </div>
+  </div>
 <% end %>

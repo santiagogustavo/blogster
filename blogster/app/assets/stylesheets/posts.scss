@@ -1,6 +1,29 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.inline {
-  display: inline-block;
+.inline-container {
+  &, h1, h2, h3, h4, p, span, i, strong, div, img {
+    display: inline-block;
+  }
+}
+
+.post {
+  &-cell {
+    height: 100px;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: wrap;
+  }
+  &-image {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+  }
+  &-image img {
+    top: 0;
+    bottom:0;
+    width: 100%;
+  }
+  &-content {
+    width: 100%;
+    height: 100%;
+  }
 }
