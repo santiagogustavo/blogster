@@ -1,0 +1,11 @@
+<%= form_for(@category) do |f| %>
+  <%= render 'error_messages' %>
+
+  <div class="form-container">
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name, placeholder: "Type the category name here" %><br>
+    <br>
+    <%= f.submit %>
+  </div>
+<% end %>

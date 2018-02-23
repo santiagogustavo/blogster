@@ -2,7 +2,10 @@
   <%= render 'shared/empty_page' %>
 <% else %>
   <section class="layout-page">
-    <h1><%= current_page?(root_path) ? "Home" : @category_name %></h1>
+    <div class="inline-container">
+      <h1><%= current_page?(root_path) ? "Home" : @category_name %></h1>
+      <%= render 'shared/buttons/create_post'%>
+    </div>
     <hr/>
     <% @posts.each do |post| %>
       <section class="post-list">

@@ -19,10 +19,17 @@ body {
 }
 
 .nav-create-button {
-  font-weight: bold;
   @media (min-width: $screen-md - 224px) {
     margin-left: 20px;
   }
+}
+
+.button-sum {
+  font-weight: bold;
+}
+
+.button-margin-5 {
+  margin: 5px;
 }
 
 .layout {
