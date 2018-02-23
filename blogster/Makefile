@@ -1,4 +1,4 @@
-all: clear update run
+all: clear update seed run
 
 routes:
 	rake routes
@@ -9,6 +9,8 @@ clear:
 
 update:
 	rake db:migrate
+
+seed:
 	rake db:seed
 
 run:
