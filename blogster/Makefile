@@ -1,6 +1,6 @@
-all: clear update seed run
+all: clear update route seed run
 
-routes:
+route:
 	rails routes
 
 clear:

@@ -1,15 +1,3 @@
-.inline-container {
-  &, h1, h2, h3, h4, p, span, i, strong, div, img {
-    display: inline-block;
-  }
-}
-
-.line-truncate {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 .post {
   &-list {
     margin: 25px 0;
