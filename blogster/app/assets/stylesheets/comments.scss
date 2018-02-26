@@ -27,11 +27,15 @@
     }
   }
 
-  &-edit {
+  &-actions {
     margin-left: 25px;
+  }
+
+  &-button {
     color: #777777;
     &:hover {
       color: #222222;
+      text-decoration: none;
     }
   }
 }

@@ -15,3 +15,11 @@ Post.create(
   content: 'Stoney is the debut studio album by American rapper Post Malone. It was released on December 9, 2016, by Republic Records. The album features guest appearances from Justin Bieber, Kehlani, Quavo and 2 Chainz. The production on the album was handled by Metro Boomin, Vinylz, Frank Dukes, Illangelo, Charlie Handsome, Rex Kudo and Foreign Teck, among others.[1][2][3] The album debuted at number six on the US Billboard 200 and later reached number four. Stoney was certified double Platinum by the Recording Industry Association of America (RIAA).',
   category_id: 3
 )
+
+# COMMENT
+
+Comment.create(
+  user: 'Fantano',
+  content: 'A decent to strong 8/10',
+  post_id: 2
+)
