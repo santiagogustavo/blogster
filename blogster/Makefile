@@ -1,17 +1,17 @@
 all: clear update seed run
 
 routes:
-	rake routes
+	rails routes
 
 clear:
-	rake db:drop
-	rake db:create
+	rails db:drop
+	rails db:create
 
 update:
-	rake db:migrate
+	rails db:migrate
 
 seed:
-	rake db:seed
+	rails db:seed
 
 run:
 	rails s
