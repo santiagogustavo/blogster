@@ -1,0 +1,41 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment {
+  &-list {
+    margin: 10px;
+    padding-left: 10px;
+  }
+
+  &-cell {
+    height: 75px;
+    &-user {
+      i {
+        color: #777777;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-avatar {
+    height: 50px;
+    width: 50px;
+    margin: 11px 20px auto 0px;
+    float: left;
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &-actions {
+    margin-left: 25px;
+  }
+
+  &-button {
+    color: #777777;
+    &:hover {
+      color: #222222;
+      text-decoration: none;
+    }
+  }
+}

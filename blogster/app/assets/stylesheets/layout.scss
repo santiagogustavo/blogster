@@ -28,8 +28,16 @@ body {
   font-weight: bold;
 }
 
-.button-margin-5 {
-  margin: 5px;
+.inline-container {
+  &, h1, h2, h3, h4, p, span, i, strong, div, img {
+    display: inline-block;
+  }
+}
+
+.line-truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .layout {
@@ -67,6 +75,10 @@ body {
     &-list {
       color: red;
     }
+  }
+
+  &-comments {
+    margin-top: 25px;
   }
 }
 

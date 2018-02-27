@@ -1,0 +1,12 @@
+<% if @comment.errors.any? %>
+  <section class="layout-errors">
+    <p class="layout-errors-title">
+      <%= pluralize(@comment.errors.count, "error")%> prevented this comment from saving:
+    </p>
+    <ul class="layout-errors-list">
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

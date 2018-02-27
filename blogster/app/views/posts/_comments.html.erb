@@ -1,0 +1,27 @@
+<section class="layout-comments">
+  <h3>Comments</h3>
+
+  <section class="comment-list">
+    <% if @post.comments.size == 0 %>
+      <h4> No comments yet! </h4>
+      <p> Click on the button below to add one :) </p>
+    <% else %>
+      <section class="comment-list">
+        <% @post.comments.sort.reverse.each do |comment| %>
+            <div class="comment-cell">
+              <%= render 'comments/placeholders/avatar' %>
+              <div class="comment-cell-user inline-container">
+                <h4><%= comment.user %></h4>
+                <i><%= comment.created_at.strftime("%d/%m/%y, %H:%M:%S") %></i>
+                <span class="comment-actions">
+                  <%= link_to "", edit_comment_path(comment), class: "fas fa-edit fa-lg comment-button" %>
+                  <%= link_to "", comment, class: "fas fa-times fa-lg comment-button",
+                    method: :delete, data: { confirm: "Are you sure?" } %>
+                </span>
+              </div>
+              <div class="comment-cell-content"><%= comment.content %></div>
+            </div>
+        <% end %>
+    <% end %>
+  </section>
+</section>
