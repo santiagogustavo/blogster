@@ -6,6 +6,7 @@
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
+
   # Returns the variable @posts with all the entries for Post model
   def index
     if params[:category].blank?
@@ -60,6 +61,6 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 end
