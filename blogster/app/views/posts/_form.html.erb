@@ -1,11 +1,12 @@
 <%= form_for(@post) do |f| %>
+  <% @selected = params[:category] ? Category.friendly.find(params[:category]).id : @post.category_id %>
   <%= render 'error_messages' %>
 
   <div class="form-container">
-    <% @selected = params[:category] ? Category.friendly.find(params[:category]).id : nil %>
-
-    <%= f.collection_select :category, Category.all, :id, :name, prompt: "Choose a category", selected: @selected %>
-    <%= render 'shared/buttons/create_category' %>
+    <div class="inline-container">
+      <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Choose a category", selected: @selected %>
+      <%= render 'shared/buttons/create_category' %>
+    </div>
     <br>
     <%= f.label :title %>
     <br>

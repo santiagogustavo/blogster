@@ -10,4 +10,8 @@ class Post < ApplicationRecord
 
   has_many :line_items, inverse_of: :order
   has_many :comments
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end
