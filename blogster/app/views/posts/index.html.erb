@@ -1,9 +1,9 @@
 <% if @posts.size == 0 %>
-  <%= render 'shared/empty_page' %>
+  <%= render 'empty_page' %>
 <% else %>
   <section class="layout-page">
     <div class="inline-container">
-      <h1><%= current_page?(root_path) ? "Home" : @category_name %></h1>
+      <h1><%= current_page?(root_path) ? "Home" : @category.name %></h1>
       <%= render 'shared/buttons/create_post'%>
     </div>
     <hr/>
