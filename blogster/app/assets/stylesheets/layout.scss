@@ -41,6 +41,20 @@ body {
 }
 
 .layout {
+  &-header {
+    &-user {
+      line-height: 50px;
+      float: right;
+      a {
+        color: #9d9d9d;
+        &:hover {
+          color: #bbbbbb;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
   &-empty {
     margin: 20px auto;
     text-align: center;

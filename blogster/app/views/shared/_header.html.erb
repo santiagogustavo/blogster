@@ -24,6 +24,10 @@
           <% end %>
         </ul>
         <%= render 'shared/buttons/create_category' %>
+        <div class="container-fluid layout-header-user inline-container">
+          <%= link_to "Sign In".upcase, new_user_session_path %>
+          <%= link_to "Sign Up".upcase, new_user_registration_path %>
+        </div>
       </div>
     </div>
   </nav>
