@@ -38,8 +38,9 @@ class CommentsController < ApplicationController
 
   # Obtains the correct Comment with before_action and destroys it
   def destroy
+    @fallback = post_path(@comment.post_id)
     @comment.destroy
-    redirect_to request.referer
+    redirect_back(fallback_location: @fallback)
   end
 
   private
@@ -53,6 +54,6 @@ class CommentsController < ApplicationController
   end
 
   def find_post_name
-    @post_name = Post.find(@comment.post_id).title
+    @post_name = @comment.post.title
   end
 end
