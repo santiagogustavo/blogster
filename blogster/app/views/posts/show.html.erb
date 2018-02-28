@@ -1,15 +1,13 @@
-<section class="layout-page">
-  <%= render 'shared/placeholder_illustration' %>
-  
-  <h1 id="title"> <%= @post.title %> </h1>
-  <i id="date"> <%= @post.created_at.strftime("%d/%m/%y") %> </i>
+<%= render 'shared/placeholder_illustration' %>
 
-  <hr/>
-  <p><%= @post.content %></p>
-  <hr/>
-  
-  <%= render 'posts/buttons/edit' %>
-  <%= render 'posts/buttons/delete' %>
-  <%= render 'comments' %>
-  <%= render 'posts/buttons/add_comment' %>
-</section>
+<h1 id="title"> <%= @post.title %> </h1>
+<i id="date"> <%= @post.created_at.strftime("%d/%m/%y") %> </i>
+
+<hr/>
+<p><%= @post.content %></p>
+<hr/>
+
+<%= render 'posts/buttons/edit' %>
+<%= render 'posts/buttons/delete' %>
+<%= render 'comments' %>
+<%= render 'posts/buttons/add_comment' %>
