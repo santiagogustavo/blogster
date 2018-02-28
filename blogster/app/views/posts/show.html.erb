@@ -2,7 +2,7 @@
 
 <h1 id="title"> <%= @post.title %> </h1>
 <i id="user"> Posted by <%= User.find(@post.user_id).name %> </i>
-<i id="date"> <%= @post.created_at.strftime("%d/%m/%y") %> </i>
+<i id="date"> on <%= @post.created_at.strftime("%d/%m/%y") %> </i>
 
 <hr/>
 <p><%= @post.content %></p>
