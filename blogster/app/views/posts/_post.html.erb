@@ -1,0 +1,18 @@
+<% @posts.each do |post| %>
+  <div class="panel panel-default post-cell">
+    <div class="post-image">
+      <%= render 'shared/placeholder' %>
+    </div>
+    <div class="post-content">
+      <div class="inline-container line-truncate">
+        <h2> <%= link_to post.title, post %> </h2>
+        <i class="post-stats">
+          <%= post.created_at.strftime("%d/%m/%y") %> in <%= Category.find(post.category_id).name %>
+        </i>
+      </div>
+      <div class="line-truncate">
+        <p> <%= post.content %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>
