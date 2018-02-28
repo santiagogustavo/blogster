@@ -23,7 +23,9 @@
             </li>
           <% end %>
         </ul>
-        <%= render 'shared/buttons/create_category' %>
+        <% if user_signed_in? %>
+          <%= render 'shared/buttons/create_category' %>
+        <% end %>
         <div class="container-fluid layout-header-user inline-container">
           <% if user_signed_in? %>
             <span class="name"><%= current_user.name %></span>

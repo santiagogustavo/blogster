@@ -42,12 +42,14 @@ ActiveRecord::Schema.define(version: 20180227171454) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "slug", null: false
     t.string "title"
     t.text "content"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

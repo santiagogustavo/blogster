@@ -4,9 +4,10 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates :title, :content, :category_id, presence: true
+  validates :title, :content, :category_id, :user_id, presence: true
 
   belongs_to :category
+  belongs_to :user
 
   has_many :line_items, inverse_of: :order
   has_many :comments
