@@ -33,6 +33,34 @@ Post.create(
   user_id: 1
 )
 
+Post.create(
+  title: 'Marmozets - Knowing What You Know Now',
+  content: 'Marmozets’ attempts to bring math-rock to the masses is what’s made them so appealing. Their complex, time signature-hopping riffs and rebellious, catchy lyrics help the Yorkshire quintet stand out as a band who refuse to be pigeonholed. Four years after ‘The Weird And Wonderful Marmozets’, they’re back with ‘Knowing What You Know Now’. They’re still genre-twisting, but their focus has shifted slightly from complexity to short, punchy riffs that recall some of the bands that producer Gil Norton has worked with previously: Pixies, Foo Fighters, The Distillers.',
+  category_id: 2,
+  user_id: 1
+)
+
+Post.create(
+  title: 'Blur - Blur: The Best Of',
+  content: 'Blur: The Best Of is a greatest hits compilation album by English Britpop band Blur, first released in late 2000 and is the final Blur album by Food Records. It was released on CD, cassette tape, MiniDisc, double 12" vinyl record, DVD and VHS. The CD album includes 17 of Blur\'s 23 singles from 1990 to 2000, plus non-single, "This Is a Low". A special edition of the CD version included a live CD.',
+  category_id: 2,
+  user_id: 1
+)
+
+Post.create(
+  title: 'Gorillaz - Demon Days',
+  content: 'Demon Days is the second studio album by British virtual band Gorillaz, released on 11 May 2005 in Japan and on 23 May internationally by Parlophone Records and in the United States by Virgin Records. The album features contributions from De La Soul, Neneh Cherry, Martina Topley-Bird, Roots Manuva, MF Doom, Ike Turner, Bootie Brown of the Pharcyde, Shaun Ryder, Dennis Hopper, the London Community Gospel Choir, and a children\'s choir. Frontman Damon Albarn brought in Danger Mouse as producer.',
+  category_id: 3,
+  user_id: 1
+)
+
+Post.create(
+  title: 'Sam Paganini - Satellite',
+  content: 'Foremost international techno outlet Drumcode is delighted to announce the release of its next full-length album, \'Satellite\', by enduring Italian techno talent Sam Paganini. Though he has been active since the mid nineties, recent years have been hugely successful for Sam, with searing techno EPs coming on revered labels such as Riche Hawtin\'s Plus8, Sven Vath\'s Cocoon and of course, Adam Beyer\'s Drumcode.',
+  category_id: 1,
+  user_id: 1
+)
+
 # COMMENT
 Comment.create(
   content: 'A decent to strong 8/10',

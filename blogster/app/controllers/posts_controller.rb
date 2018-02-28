@@ -8,10 +8,10 @@ class PostsController < ApplicationController
   # Returns the variable @posts with all the entries for Post model
   def index
     if params[:category].blank?
-      @posts = Post.all.order('created_at DESC')
+      @posts = Post.all.order('created_at DESC').page(params[:page])
     else
       @category = Category.friendly.find(params[:category])
-      @posts = @category.posts.order('created_at DESC')
+      @posts = @category.posts.order('created_at DESC').page(params[:page])
     end
   end
 
