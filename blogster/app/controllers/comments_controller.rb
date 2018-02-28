@@ -1,6 +1,7 @@
 # COMMENTS CONTROLLER
 # MODEL: Comment (:content, :post_id, :user_id)
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create edit update destroy]
   before_action :find_comment, only: %i[edit update destroy]
 
   # Generates an instance for Comment model with the parameters filled
@@ -37,7 +38,7 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
 
   def find_post_name
