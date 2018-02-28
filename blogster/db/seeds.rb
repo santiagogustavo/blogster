@@ -1,3 +1,11 @@
+# USER
+User.create(
+  name: 'Fantano',
+  email: 'theneedledrop@gmail.com',
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+
 # CATEGORY
 Category.create(name: 'Electronic')
 Category.create(name: 'Rock')
@@ -17,9 +25,8 @@ Post.create(
 )
 
 # COMMENT
-
 Comment.create(
-  user: 'Fantano',
   content: 'A decent to strong 8/10',
-  post_id: 2
+  post_id: 2,
+  user_id: 1
 )

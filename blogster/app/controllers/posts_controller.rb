@@ -18,7 +18,9 @@ class PostsController < ApplicationController
   end
 
   # Passthrough for getting the correct Post with before_action
-  def show; end
+  def show
+    @comment = Comment.new(post_id: @post.id)
+  end
 
   # Generates an empty instance for Post model
   def new

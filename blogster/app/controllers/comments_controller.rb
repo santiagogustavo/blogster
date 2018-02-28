@@ -1,25 +1,13 @@
 # COMMENTS CONTROLLER
-# MODEL: Comment (:user, :content)
+# MODEL: Comment (:content, :post_id, :user_id)
 class CommentsController < ApplicationController
   before_action :find_comment, only: %i[edit update destroy]
 
-  # Generates an empty instance for Comment model
-  # Also defines the initial @post_name for rendering in the page
-  def new
-    @comment = Comment.new(post_id: params[:post_id])
-    @post_name = find_post_name
-  end
-
   # Generates an instance for Comment model with the parameters filled
   def create
-    @comment = Comment.new(comment_params)
-
-    if @comment.save
-      redirect_to post_path(@comment.post)
-    else
-      @post_name = find_post_name
-      render 'new'
-    end
+    @comment = Comment.new(comment_params.merge(user_id: current_user.id))
+    @comment.save
+    redirect_to post_path(@comment.post)
   end
 
   # Passthrough for getting the correct Comment with before_action
@@ -45,7 +33,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user, :content, :post_id)
+    params.require(:comment).permit(:content, :post_id)
   end
 
   def find_comment
