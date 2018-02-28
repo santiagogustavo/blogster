@@ -38,9 +38,8 @@ class CommentsController < ApplicationController
 
   # Obtains the correct Comment with before_action and destroys it
   def destroy
-    @fallback = post_path(@comment.post)
     @comment.destroy
-    redirect_back(fallback_location: @fallback)
+    redirect_back(fallback_location: root_path)
   end
 
   private

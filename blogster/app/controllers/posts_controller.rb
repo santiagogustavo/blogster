@@ -40,7 +40,6 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    @post.slug = nil
     if @post.update(post_params)
       redirect_to @post, notice: 'Post updated successfully!'
     else
