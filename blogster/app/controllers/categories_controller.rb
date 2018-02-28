@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to posts_path(category: @category.name)
+      redirect_to posts_path(category: @category)
     else
       render 'new'
     end
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to posts_path(category: @category.name)
+      redirect_to posts_path(category: @category)
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
   end
 end

@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to post_path(@comment.post_id)
+      redirect_to post_path(@comment.post)
     else
       @post_name = find_post_name
       render 'new'
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to post_path(@comment.post_id)
+      redirect_to post_path(@comment.post)
     else
       @post_name = find_post_name
       render 'edit'
@@ -38,9 +38,8 @@ class CommentsController < ApplicationController
 
   # Obtains the correct Comment with before_action and destroys it
   def destroy
-    @fallback = post_path(@comment.post_id)
     @comment.destroy
-    redirect_back(fallback_location: @fallback)
+    redirect_back(fallback_location: root_path)
   end
 
   private

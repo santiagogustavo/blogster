@@ -6,14 +6,14 @@
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
+
   # Returns the variable @posts with all the entries for Post model
   def index
     if params[:category].blank?
       @posts = Post.all.order('created_at DESC')
     else
-      @category_name = params[:category]
-      @category_id = Category.find_by(name: params[:category])
-      @posts = Post.where(category_id: @category_id).order('created_at DESC')
+      @category = Category.friendly.find(params[:category])
+      @posts = @category.posts.order('created_at DESC')
     end
   end
 
@@ -60,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 end

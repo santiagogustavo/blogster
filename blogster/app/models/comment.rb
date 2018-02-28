@@ -1,4 +1,7 @@
+# COMMENT MODEL
+# Comment (:user, :content, :post_id)
 class Comment < ApplicationRecord
-  belongs_to :post
   validates :user, :content, :post_id, presence: true
+
+  belongs_to :post
 end
