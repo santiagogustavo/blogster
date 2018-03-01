@@ -1,9 +1,9 @@
 # POSTS CONTROLLER
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create edit update destroy]
-  before_action :find_post, only: %i[show]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :find_user_post, only: %i[edit update destroy]
+  before_action :find_post, only: :show
 
   # Returns the variable @posts with all the entries for Post model
   def index

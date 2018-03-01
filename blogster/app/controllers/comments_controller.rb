@@ -1,12 +1,12 @@
 # COMMENTS CONTROLLER
 # MODEL: Comment (:content, :post_id, :user_id)
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create edit update destroy]
-  before_action :find_comment, only: %i[edit update destroy]
+  before_action :authenticate_user!
+  before_action :find_comment, except: :create
 
   # Generates an instance for Comment model with the parameters filled
   def create
-    @comment = Comment.new(comment_params.merge(user_id: current_user.id))
+    @comment = current_user.comments.create(comment_params)
     @comment.save
     redirect_to post_path(@comment.post)
   end
