@@ -1,11 +1,9 @@
-# class Controller
-#   def action; end
-# end
-
 # POSTS CONTROLLER
 # MODEL: Post (:title, :content, :category_id)
 class PostsController < ApplicationController
-  before_action :find_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :find_user_post, only: %i[edit update destroy]
+  before_action :find_post, only: :show
 
   # Returns the variable @posts with all the entries for Post model
   def index
@@ -18,7 +16,9 @@ class PostsController < ApplicationController
   end
 
   # Passthrough for getting the correct Post with before_action
-  def show; end
+  def show
+    @comment = Comment.new(post_id: @post.id)
+  end
 
   # Generates an empty instance for Post model
   def new
@@ -56,10 +56,16 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category_id)
+    params.require(:post)
+          .permit(:title, :content, :category_id)
+          .merge(user_id: current_user.id)
   end
 
   def find_post
     @post = Post.friendly.find(params[:id])
+  end
+
+  def find_user_post
+    @post = current_user.posts.friendly.find(params[:id])
   end
 end

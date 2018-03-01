@@ -1,11 +1,11 @@
 <%= form_for(@comment) do |f| %>
   <%= f.hidden_field :post_id %>
-  <%= f.hidden_field :user %>
+  <%= f.hidden_field :user_id %>
 
   <%= render 'error_messages' %>
 
   <div class="form-container">
-    <%= f.label :user %>: <%= @comment.user %>
+    <%= f.label :user %>: <%= @comment.user.name %>
     <br>
     <%= f.text_area :content, size: "128", placeholder: "Type the comment here" %>
     <br>

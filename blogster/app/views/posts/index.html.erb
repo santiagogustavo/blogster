@@ -3,7 +3,9 @@
 <% else %>
   <div class="inline-container">
     <h1><%= current_page?(root_path) ? "Home" : @category.name %></h1>
-    <%= render 'shared/buttons/create_post'%>
+    <% if user_signed_in? %>
+      <%= render 'shared/buttons/create_post'%>
+    <% end %>
   </div>
   <hr/>
   <section class="post-list">

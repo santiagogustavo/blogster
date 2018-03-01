@@ -1,13 +1,17 @@
 <%= render 'shared/placeholder_illustration' %>
 
 <h1 id="title"> <%= @post.title %> </h1>
-<i id="date"> <%= @post.created_at.strftime("%d/%m/%y") %> </i>
+<i id="user"> Posted by <%= User.find(@post.user_id).name %> </i>
+<i id="date"> on <%= @post.created_at.strftime("%d/%m/%y") %> </i>
 
 <hr/>
 <p><%= @post.content %></p>
 <hr/>
 
-<%= render 'posts/buttons/edit' %>
-<%= render 'posts/buttons/delete' %>
+<% if user_signed_in? && @post.user_id == current_user.id %>
+  <%= render 'posts/buttons/edit' %>
+  <%= render 'posts/buttons/delete' %>
+<% end %>
+
 <%= render 'comments' %>
-<%= render 'posts/buttons/add_comment' %>
+<%= render 'comments/form' %>
