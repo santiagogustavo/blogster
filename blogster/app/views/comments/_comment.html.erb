@@ -1,0 +1,18 @@
+<div class="comment-cell">
+  <%= render 'comments/placeholders/avatar' %>
+  
+  <div class="comment-cell-user inline-container">
+    <h4><%= comment.user.name %></h4>
+    <i><%= comment.created_at.strftime("%d/%m/%y, %H:%M:%S") %></i>
+
+    <% if user_signed_in? && comment.user.id == current_user.id %>
+      <span class="comment-actions">
+        <%= link_to "", edit_comment_path(comment), class: "fas fa-edit fa-lg comment-button" %>
+        <%= link_to "", comment, class: "fas fa-times fa-lg comment-button",
+          method: :delete, data: { confirm: "Are you sure?" } %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="comment-cell-content"><%= comment.content %></div>
+</div>

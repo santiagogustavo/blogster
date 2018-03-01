@@ -10,7 +10,7 @@ body {
   display: block;
   position: relative;
   padding-top: 65px;
-  padding-bottom: 65px;
+  padding-bottom: 115px;
 }
 
 /* Bootstrap override */
@@ -52,9 +52,11 @@ body {
           text-decoration: none;
         }
       }
+      a, span {
+        margin-left: 10px;
+      }
       .name {
         color: #dddddd;
-        margin-right: 10px;
       }
     }
   }

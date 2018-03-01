@@ -10,5 +10,6 @@
   <hr/>
   <section class="post-list">
     <%= render @posts %>
+    <%= will_paginate @posts, class: "apple-pagination" %>
   </section>
 <% end %>
