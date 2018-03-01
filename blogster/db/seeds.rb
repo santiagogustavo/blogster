@@ -13,6 +13,13 @@ User.create(
   password_confirmation: 'topsecret'
 )
 
+User.create(
+  name: 'Damon',
+  email: 'albarn@gmail.com',
+  password: 'topsecret',
+  password_confirmation: 'topsecret'
+)
+
 # CATEGORY
 Category.create(name: 'Electronic')
 Category.create(name: 'Rock')
@@ -61,9 +68,30 @@ Post.create(
   user_id: 1
 )
 
+Post.create(
+  title: 'Royal Blood - How Did We Get So Dark?',
+  content: 'How Did We Get So Dark? is the second studio album by British rock duo Royal Blood. The album was released by Warner Bros. Records on 16 June 2017. The album is considered by most critics to be compositionally similar to the band\'s breakthrough debut album[citation needed]; both albums are stylistically very similar, with Kerr\'s bass serving as the music\'s focal point.',
+  category_id: 2,
+  user_id: 1
+)
+
 # COMMENT
 Comment.create(
   content: 'A decent to strong 8/10',
   post_id: 2,
   user_id: 2
+)
+
+5.times do
+  Comment.create(
+    content: 'It\'s coming up',
+    post_id: 5,
+    user_id: 3
+  )
+end
+
+Comment.create(
+  content: 'It\'s there',
+  post_id: 5,
+  user_id: 3
 )

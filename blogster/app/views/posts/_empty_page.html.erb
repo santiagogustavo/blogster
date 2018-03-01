@@ -1,5 +1,15 @@
 <div class="layout-empty align-middle">
   <%= render 'shared/vinyl' %>
-  <h2> Whoops! No posts found in category <i><%= @category.name %></i>. </h2>
-  <p> Click <%= render 'shared/buttons/create_post'%> to make one! </p>
+  
+  <% if @category %>
+    <h2> Whoops! No posts found in category <i><%= @category.name %></i>. </h2>
+  <% else %>
+    <h2> This is the very beginning of the blog!</h2>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <p> Click <%= render 'shared/buttons/create_post'%> to create a post! </p>
+  <% else %>
+    <%= link_to "Sign in to start posting", new_user_session_path, class: "btn btn-default post-add-comment-button" %>
+  <% end %>
 </div>

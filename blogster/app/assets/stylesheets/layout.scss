@@ -52,9 +52,11 @@ body {
           text-decoration: none;
         }
       }
+      a, span {
+        margin-left: 10px;
+      }
       .name {
         color: #dddddd;
-        margin-right: 10px;
       }
     }
   }

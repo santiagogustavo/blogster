@@ -13,11 +13,14 @@ class PostsController < ApplicationController
       @category = Category.friendly.find(params[:category])
       @posts = @category.posts.order('created_at DESC').page(params[:page])
     end
+    redirect_to root_path if @posts.empty? && !Post.all.empty?
   end
 
   # Passthrough for getting the correct Post with before_action
   def show
     @comment = Comment.new(post_id: @post.id)
+    @comments = @post.comments.order('created_at DESC').page(params[:page])
+    redirect_to post_path(@post) if @comments.empty? && !@post.comments.empty?
   end
 
   # Generates an empty instance for Post model
