@@ -1,7 +1,7 @@
 <div class="panel panel-default post-cell">
   <div class="post-image">
     <% if post.image_url.to_s.empty? %>
-      <%= render 'shared/placeholder' %>
+      <%= render 'shared/placeholder/post' %>
     <% else %>
       <%= image_tag post.image_url.to_s, alt: "Post image", class: "img-responsive" %>
     <% end %>

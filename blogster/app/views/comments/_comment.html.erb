@@ -1,5 +1,11 @@
 <div class="comment-cell">
-  <%= render 'comments/placeholders/avatar' %>
+  <div class="comment-avatar">
+    <% if comment.user.image_url.to_s.empty? %>
+      <%= render 'shared/placeholders/avatar' %>
+    <% else %>
+      <%= image_tag comment.user.image_url.to_s, alt: "User avatar", class: "img-responsive" %>
+    <% end %>
+  </div>
   
   <div class="comment-cell-user inline-container">
     <h4><%= comment.user.name %></h4>

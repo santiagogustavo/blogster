@@ -7,6 +7,7 @@ User.create(
 )
 
 User.create(
+  image: Rails.root.join('public/uploads/user/image/2/avatar.jpg').open,
   name: 'Fantano',
   email: 'theneedledrop@gmail.com',
   password: 'topsecret',
