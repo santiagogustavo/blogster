@@ -1,0 +1,5 @@
+<% if current_user.image_url.to_s.empty? %>
+  <%= render 'shared/placeholders/avatar' %>
+<% else %>
+  <%= image_tag current_user.image_url.to_s, alt: "User avatar", class: "img-responsive" %>
+<% end %>

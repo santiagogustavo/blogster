@@ -52,8 +52,15 @@ body {
           text-decoration: none;
         }
       }
-      a, span {
+      a, span, .avatar {
         margin-left: 10px;
+      }
+      .avatar {
+        height: 35px;
+        width: 35px;
+        img {
+          border-radius: 50%;
+        }
       }
       .name {
         color: #dddddd;

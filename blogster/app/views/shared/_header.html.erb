@@ -28,6 +28,9 @@
         <% end %>
         <div class="container-fluid layout-header-user inline-container">
           <% if user_signed_in? %>
+            <div class="avatar">
+              <%= render 'renderers/avatar' %>
+            </div>
             <span class="name"><%= current_user.name %></span>
             <%= link_to "Log Out".upcase, destroy_user_session_path, method: :delete %>
           <% else %>
