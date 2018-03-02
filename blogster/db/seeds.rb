@@ -3,6 +3,7 @@ User.create(
   image: Rails.root.join('public/uploads/user/image/1/avatar.jpg').open,
   name: 'Postmaster',
   email: 'post@master.com',
+  bio: 'Hello, human',
   password: 'verysecret',
   password_confirmation: 'verysecret'
 )

@@ -13,7 +13,7 @@
       </button>
 
       <div class="form-container">
-        <%= f.text_area :content, maxlength: "128", placeholder: "Type your comment here" %>
+        <%= f.text_area :content, maxlength: "128", placeholder: "Commenting as #{current_user.name}" %>
       </div>
     <% end %>
   <% else %>

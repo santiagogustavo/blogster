@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .comment {
+  &-link {
+    &-post {
+      color: #333333;
+    }
+
+    &-user {
+      color: #222222;
+    }
+  }
+
   &-list, &-form {
     margin: 10px;
     padding-left: 10px;

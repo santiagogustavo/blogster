@@ -6,6 +6,9 @@
   <div class="inline-container">
     <h1><%= @user.name %></h1>
     <p class="created-at"><i>Since <%= @user.created_at.strftime("%d/%m/%y, %H:%M:%S")  %></i></p>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <%= render 'users/buttons/edit' %>
+    <% end %>
   </div>
   <p>
     <strong>Last signed in:</strong>
@@ -13,6 +16,12 @@
   </p>
   <p><strong>Posts:</strong> <%= @user.posts.count %></p>
   <p><strong>Comments:</strong> <%= @user.comments.count %></p>
+</section>
+
+<br/>
+
+<section class="user-bio">
+  <i> <%= @user.bio || "#{@user.name} does not have a bio" %> </i>
 </section>
 
 <hr/>
@@ -24,9 +33,9 @@
   </section>
 <% end %>
 
-<hr/>
-
 <% unless @user.comments.empty? %>
+  <hr/>
+
   <h3>Comments</h3>
   <section class="comment-list">
     <%= render @user.comments.sort.reverse, link_posts: true %>
