@@ -28,7 +28,10 @@
         <% end %>
         <div class="container-fluid layout-header-user inline-container">
           <% if user_signed_in? %>
-            <span class="name"><%= current_user.name %></span>
+            <div class="avatar">
+              <%= render 'renderers/avatar' %>
+            </div>
+            <%= link_to current_user.name, user_path(current_user.id), class: "name" %>
             <%= link_to "Log Out".upcase, destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign In".upcase, new_user_session_path %>

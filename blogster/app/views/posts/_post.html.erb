@@ -1,7 +1,7 @@
 <div class="panel panel-default post-cell">
   <div class="post-image">
     <% if post.image_url.to_s.empty? %>
-      <%= render 'shared/placeholder/post' %>
+      <%= render 'shared/placeholders/post' %>
     <% else %>
       <%= image_tag post.image_url.to_s, alt: "Post image", class: "img-responsive" %>
     <% end %>
@@ -12,8 +12,8 @@
         <h2> <%= link_to post.title, post %> </h2>
         <i class="post-stats">
           <%= post.created_at.strftime("%d/%m/%y") %>
-          by <%= User.find(post.user_id).name %>
-          in <%= Category.find(post.category_id).name %>
+          by <%= link_to post.user.name, user_path(post.user.id), class: "post-link-user" %>
+          at <%= link_to post.category.name, posts_path(category: post.category)%>
         </i>
       </div>
       <div class="line-truncate">
