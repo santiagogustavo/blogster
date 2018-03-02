@@ -1,3 +1,7 @@
+<% if (defined? link_posts) && (link_posts == true) %>
+  <h4><%= link_to comment.post.title, post_path(comment.post) %></h4>
+<% end %>
+
 <div class="comment-cell">
   <div class="comment-avatar">
     <% if comment.user.image_url.to_s.empty? %>
@@ -6,7 +10,7 @@
       <%= image_tag comment.user.image_url.to_s, alt: "User avatar", class: "img-responsive" %>
     <% end %>
   </div>
-  
+
   <div class="comment-cell-user inline-container">
     <h4><%= comment.user.name %></h4>
     <i><%= comment.created_at.strftime("%d/%m/%y, %H:%M:%S") %></i>

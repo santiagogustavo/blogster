@@ -1,0 +1,23 @@
+.user {
+  &-avatar {
+    display: inline-block;
+    height: 175px;
+    width: 175px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #333333;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  &-stats {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+    overflow: hidden;
+    .created-at {
+      color: #777777;
+    }
+  }
+}
