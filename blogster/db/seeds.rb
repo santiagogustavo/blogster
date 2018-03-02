@@ -1,7 +1,9 @@
 # USER
 User.create(
+  image: Rails.root.join('public/uploads/user/image/1/avatar.jpg').open,
   name: 'Postmaster',
   email: 'post@master.com',
+  bio: 'Hello, human',
   password: 'verysecret',
   password_confirmation: 'verysecret'
 )
@@ -15,6 +17,7 @@ User.create(
 )
 
 User.create(
+  image: Rails.root.join('public/uploads/user/image/3/avatar.png').open,
   name: 'Damon',
   email: 'albarn@gmail.com',
   password: 'topsecret',
@@ -25,6 +28,7 @@ User.create(
 Category.create(name: 'Electronic')
 Category.create(name: 'Rock')
 Category.create(name: 'Rap/Hip-Hop')
+Category.create(name: 'Vaporwave')
 
 # POST
 Post.create(
@@ -84,11 +88,19 @@ Post.create(
 )
 
 Post.create(
-  title: ' Death From Above 1979 - You\'re A Woman, I\'m A Machine ',
+  title: 'Death From Above 1979 - You\'re A Woman, I\'m A Machine',
   content: 'You\'re a Woman, I\'m a Machine is the debut studio album by Canadian rock duo Death from Above (then known as Death from Above 1979). It was released October 26, 2004, through Last Gang Records. The album was produced by Al-P who would later work alongside Jesse F. Keeler in the electronic music duo MSTRKRFT.',
   image: Rails.root.join('public/uploads/post/image/8/cover.jpg').open,
   category_id: 2,
   user_id: 1
+)
+
+Post.create(
+  title: 'Macintosh Plus - Floral Shoppe',
+  content: 'Floral Shoppe (Japanese: フローラルの専門店 Hepburn: Furōraru no Senmon-ten) is a studio album by the American electronic musician Vektroid (under the one-time alias Macintosh Plus), released on December 9, 2011 by the independent record label Beer on the Rug. It was one of the first releases of the vaporwave microgenre to gain popular recognition on the Internet.',
+  image: Rails.root.join('public/uploads/post/image/9/cover.jpg').open,
+  category_id: 4,
+  user_id: 2
 )
 
 # COMMENT

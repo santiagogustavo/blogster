@@ -1,18 +1,22 @@
-<% if user_signed_in? %>
-  <%= form_for(@comment) do |f| %>
-    <%= f.hidden_field :post_id %>
-    <%= f.hidden_field :user_id %>
-
-    <%= render 'error_messages' %>
-
-    <div class="form-container">
-      Commenting as <strong><%= current_user.name %></strong>
-      <br>
-      <%= f.text_area :content, size: "128", placeholder: "Type your comment here" %>
-      <br>
-      <%= f.submit %>
+<div class="comment-form">
+  <% if user_signed_in? %>
+    <div class="comment-form-avatar">
+      <%= render 'renderers/avatar' %>
     </div>
+
+    <%= form_for(@comment) do |f| %>
+      <%= f.hidden_field :post_id %>
+      <%= f.hidden_field :user_id %>
+
+      <button type="submit" class="btn comment-form-submit">
+        <i class="fa fa-arrow-right fa-2x"></i>
+      </button>
+
+      <div class="form-container">
+        <%= f.text_area :content, maxlength: "128", placeholder: "Commenting as #{current_user.name}" %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to "Sign in to add a comment", new_user_session_path, class: "btn btn-default post-add-comment-button" %>
   <% end %>
-<% else %>
-  <%= link_to "Sign in to add a comment", new_user_session_path, class: "btn btn-default post-add-comment-button" %>
-<% end %>
+</div>

@@ -1,14 +1,15 @@
 <div class="layout-illustration">
   <% if @post.image_url.to_s.empty? %>
-    <%= render 'shared/placeholder/post' %>
+    <%= render 'shared/placeholders/post' %>
   <% else %>
     <%= image_tag @post.image_url.to_s, alt: "Post image", class: "img-responsive" %>
   <% end %>
 </div>
 
 <h1 id="title"> <%= @post.title %> </h1>
-<i id="user"> Posted by <%= User.find(@post.user_id).name %> </i>
+<i id="user"> Posted by <%= link_to @post.user.name, user_path(@post.user.id) %> </i>
 <i id="date"> on <%= @post.created_at.strftime("%d/%m/%y") %> </i>
+<i id="date"> at <%= link_to @post.category.name, posts_path(category: @post.category) %> </i>
 
 <hr/>
 <p><%= @post.content %></p>
@@ -20,4 +21,3 @@
 <% end %>
 
 <%= render 'comments' %>
-<%= render 'comments/form' %>

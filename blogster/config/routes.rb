@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resources :comments
+  resources :users, only: [:show]
 end

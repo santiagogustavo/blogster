@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   has_many :line_items, inverse_of: :order
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

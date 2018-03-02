@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :reset_password_sent_at
       t.string   :name
       t.string   :image
+      t.string   :bio
 
       ## Rememberable
       t.datetime :remember_created_at
