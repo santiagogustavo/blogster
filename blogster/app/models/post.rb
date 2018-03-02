@@ -12,6 +12,8 @@ class Post < ApplicationRecord
   has_many :line_items, inverse_of: :order
   has_many :comments
 
+  mount_uploader :image, ImageUploader
+
   self.per_page = 5
 
   def should_generate_new_friendly_id?

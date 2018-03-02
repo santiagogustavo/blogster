@@ -1,4 +1,10 @@
-<%= render 'shared/placeholder_illustration' %>
+<div class="layout-illustration">
+  <% if @post.image_url.to_s.empty? %>
+    <%= render 'shared/placeholder/post' %>
+  <% else %>
+    <%= image_tag @post.image_url.to_s, alt: "Post image", class: "img-responsive" %>
+  <% end %>
+</div>
 
 <h1 id="title"> <%= @post.title %> </h1>
 <i id="user"> Posted by <%= User.find(@post.user_id).name %> </i>
